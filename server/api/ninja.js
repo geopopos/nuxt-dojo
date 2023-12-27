@@ -14,7 +14,9 @@ export default defineEventHandler(async (event) => {
     //     return { message: 'Invalid body data' };
     // }
 
-    const { data } = await $fetch('https://api.currencyapi.com/v3/latest?apikey=cur_live_D6NpaDavcXNl7cuH7UNQmTPydK7QMeke44NZJWYj')
+    const {currencyKey} = useRuntimeConfig();
+
+    const { data } = await $fetch('https://api.currencyapi.com/v3/latest?apikey=${currencyKey}')
     console.log(data)
     return data
 });
